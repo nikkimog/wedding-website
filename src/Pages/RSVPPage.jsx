@@ -4,11 +4,11 @@ import {
   Box,
   Button,
   TextField,
-  RadioGroup,
+//   RadioGroup,
   Snackbar,
   Alert,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
+// import { styled } from "@mui/material/styles";
 import RSVPForm from "../Components/RSVPForm";
 
 const RSVPPage = () => {
@@ -16,8 +16,8 @@ const RSVPPage = () => {
   const [guestName, setGuestName] = useState("");
   const [foundGuest, setFoundGuest] = useState(false);
   const [attemptMade, setAttemptMade] = useState(false);
-  const [guestDescription, setGuestDescription] = useState("");
-  const [error, setError] = useState("");
+//   const [guestDescription, setGuestDescription] = useState("");
+  const [error, ] = useState("");
   const [open, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");

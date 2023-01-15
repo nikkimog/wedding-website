@@ -12,15 +12,14 @@ const CeremonyPage = () => {
                 <Typography>We’ll be celebrating our marriage at 4:30pm at Tokara Wine Estate in Stellenbosch, South Africa.</Typography>
             </Box>
             <Box display="flex">
-                three areas
-                <Box>area one
+                <Box>it will be at 4:30
              <img src="clock.png" height="300px" alt="clock showing 430 pm" /> 
 
                 </Box>
-                <Box>area two</Box>
+                <Box>the venue is tokara</Box>
              <img src="tokara.jpeg" height="300px" alt="tokara wine estate" /> 
 
-                <Box>arew three</Box>
+                <Box>it is in stellenbosch</Box>
              <img src="stellenbosch.png" height="300px" alt="clock showing 430 pm" /> 
 
             </Box>

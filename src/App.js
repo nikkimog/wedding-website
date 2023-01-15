@@ -6,11 +6,9 @@ import CeremonyPage from './Pages/CeremonyPage';
 import FAQPage from './Pages/FAQPage';
 import ThingsToDoPage from './Pages/ThingsToDoPage';
 import AccomodationsPage from './Pages/AccomodationsPage'
-// import { Link, Route } from 'react-router'
 import React, {useState} from 'react';
 import Navigation from './Components/Navigation';
-import { Button } from '@mui/material';
-import { BrowserRouter as Router, Route, Link, Switch, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
@@ -42,9 +40,9 @@ const theme = createTheme({
 
 const App= () => {
 
-  const [page, setPage] = useState('Home')
+  // const [page, setPage] = useState('Home')
 
-  const NavigationItems = [{}]
+  // const NavigationItems = [{}]
   
   return (
     <div className="App">
