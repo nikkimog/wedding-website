@@ -1,23 +1,72 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './Pages/HomePage'
+import RSVPPage from './Pages/RSVPPage'
+import RegistryPage from './Pages/RegistryPage';
+import CeremonyPage from './Pages/CeremonyPage';
+import FAQPage from './Pages/FAQPage';
+import ThingsToDoPage from './Pages/ThingsToDoPage';
+import AccomodationsPage from './Pages/AccomodationsPage'
+// import { Link, Route } from 'react-router'
+import React, {useState} from 'react';
+import Navigation from './Components/Navigation';
+import { Button } from '@mui/material';
+import { BrowserRouter as Router, Route, Link, Switch, Routes } from "react-router-dom";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-function App() {
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#606c38'
+    },
+    secondary: {
+      main: '#283618'
+    }
+  },
+  typography: {
+    h3: {
+      color: '#283618'
+    },
+    h2: {
+      fontSize: '40px'
+    },
+    h5: {
+      fontSize: '20px',
+      color: '#283618'
+    },
+    primary: {
+      color: '#606c38'
+    },
+  },
+});
+
+const App= () => {
+
+  const [page, setPage] = useState('Home')
+
+  const NavigationItems = [{}]
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={theme}>
+         <Router>
+      <Navigation />
+
+    <Routes>
+    <Route exact path="/" element={<HomePage />} />
+    <Route exact path="/RSVP" element={<RSVPPage />} />
+    <Route exact path="/registry" element={<RegistryPage />} />
+    <Route path="/accomodations" element={<AccomodationsPage />} />
+    <Route path="/things-to-do" element={<ThingsToDoPage />} />
+    <Route path="/ceremony" element={<CeremonyPage />} />
+    <Route path="/faq" element={<FAQPage />} />
+
+
+</Routes>
+ 
+
+</Router>
+      </ThemeProvider>
     </div>
   );
 }
