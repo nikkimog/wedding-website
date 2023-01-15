@@ -6,7 +6,7 @@ import CeremonyPage from './Pages/CeremonyPage';
 import FAQPage from './Pages/FAQPage';
 import ThingsToDoPage from './Pages/ThingsToDoPage';
 import AccomodationsPage from './Pages/AccomodationsPage'
-import React, {useState} from 'react';
+import React from 'react';
 import Navigation from './Components/Navigation';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
