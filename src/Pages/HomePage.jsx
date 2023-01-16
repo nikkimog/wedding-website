@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, Button, Box } from "@mui/material";
 import React from "react";
 
 
@@ -9,9 +9,17 @@ const HomePage =()=> {
              {/* <img src="nikkiandkai3screenshot.jpg" alt="nikki and kai holding puppy linda" />  */}
             </div>
             <div className="textDiv">
-                <Typography variant="primary">
+              <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+                <Typography variant="primary" sx={{padding: '.5rem'}}>
               come celebrate with us
               </Typography>
+              <Box sx={{display: 'flex', justifyContent: 'space-evenly'}}> 
+                <Button to="/ceremony" variant="outlined">Ceremony Details</Button>
+                <Button variant="outlined">RSVP Here</Button>
+                <Button variant="outlined">About Us</Button>
+
+              </Box>
+              </Box>
             </div>
       </div>
     )
