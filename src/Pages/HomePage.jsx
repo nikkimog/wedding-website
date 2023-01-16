@@ -1,5 +1,6 @@
 import { Typography, Button, Box } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const HomePage =()=> {
@@ -14,9 +15,17 @@ const HomePage =()=> {
               come celebrate with us
               </Typography>
               <Box sx={{display: 'flex', justifyContent: 'space-evenly'}}> 
-                <Button to="/ceremony" variant="outlined">Ceremony Details</Button>
+              <Link to="/ceremony">
+                <Button variant="outlined">Ceremony Details</Button>
+                </Link>
+              <Link to="/rsvp">
+
                 <Button variant="outlined">RSVP Here</Button>
+                </Link>
+              <Link to="/">
+
                 <Button variant="outlined">About Us</Button>
+                </Link>
 
               </Box>
               </Box>
