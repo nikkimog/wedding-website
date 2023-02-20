@@ -1,16 +1,16 @@
 import './App.css';
-import HomePage from './Pages/HomePage'
+// import HomePage from './Pages/HomePage'
 import RSVPPage from './Pages/RSVPPage'
-import RegistryPage from './Pages/RegistryPage';
-import CeremonyPage from './Pages/CeremonyPage';
-import FAQPage from './Pages/FAQPage';
-import ThingsToDoPage from './Pages/ThingsToDoPage';
-import AccomodationsPage from './Pages/AccomodationsPage'
+// import RegistryPage from './Pages/RegistryPage';
+// import CeremonyPage from './Pages/CeremonyPage';
+// import FAQPage from './Pages/FAQPage';
+// import ThingsToDoPage from './Pages/ThingsToDoPage';
+// import AccomodationsPage from './Pages/AccomodationsPage'
 import React from 'react';
 import Navigation from './Components/Navigation';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import LodgingPage from './Pages/LodgingPage';
+// import LodgingPage from './Pages/LodgingPage';
 import { createClient } from '@supabase/supabase-js'
 import MainView from './Pages/MainView';
 

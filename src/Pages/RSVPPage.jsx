@@ -55,35 +55,35 @@ const RSVPPage = () => {
     console.log('guests', guests)
 
 };
-  const findGuest = () => {
-    console.log(guestName);
-    // try {
-    fetch(`http://localhost:3001/?name=${guestName}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log("data", data);
-        setGuests(data);
-        // setGuestDescription(data[0].description)
-        setAttemptMade(true);
+  // const findGuest = () => {
+  //   console.log(guestName);
+  //   // try {
+  //   fetch(`http://localhost:3001/?name=${guestName}`)
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       console.log("data", data);
+  //       setGuests(data);
+  //       // setGuestDescription(data[0].description)
+  //       setAttemptMade(true);
 
-        if (data[0]?.name) {
-          setFoundGuest(true);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-        setOpenSnackbar(true);
-        setSnackbarSeverity("error");
-        setSnackbarMessage(
-          "Shoot there is something going awry here. Would you mind reaching out to Nikki or Kai and letting them know?"
-        );
-        // setError(
-        //   "Shoot there is something going awry here. Would you mind reaching out to Nikki or Kai and letting them know?"
-        // );
-      });
-  };
+  //       if (data[0]?.name) {
+  //         setFoundGuest(true);
+  //       }
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //       setOpenSnackbar(true);
+  //       setSnackbarSeverity("error");
+  //       setSnackbarMessage(
+  //         "Shoot there is something going awry here. Would you mind reaching out to Nikki or Kai and letting them know?"
+  //       );
+  //       // setError(
+  //       //   "Shoot there is something going awry here. Would you mind reaching out to Nikki or Kai and letting them know?"
+  //       // );
+  //     });
+  // };
 
   // use react hook form to handle final submit
 
