@@ -13,23 +13,25 @@ const Navigation = ({children}) => {
 
     const navItems = [
     {name: 'RSVP', path: '/rsvp'},
-    {name: 'Things to Do', path: '/things-to-do'},
-    {name:  'Accomodations', path: '/accomodations'},
-    {name: 'Ceremony', path: '/ceremony'},
-    {name:  'Registry', path: '/registry'},
-    {name: 'FAQ', path: '/faq'},
+    // {name: 'Things to Do', path: '/things-to-do'},
+    {name: 'Ceremony', path: '/#ceremony'},
+    {name:  'Lodging', path: '/#lodging'},
+    {name:  'Registry', path: '/#registry'},
+    {name: 'FAQ', path: '/#faq'},
 
   ]
     const drawerWidth = 240;
     const drawer = (
 
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            {/* <Link to='/'> */}\
-            <Link to="/">
+            {/* <Link to='/'> */}
           <Typography variant="h6" sx={{ my: 2 }}>
-            NIKKI and KAI
-          </Typography>
+          <Link to="/">
+
+            N / K
           </Link>
+
+          </Typography>
           {/* </Link> */}
           <Divider />
           <List>
@@ -38,9 +40,11 @@ const Navigation = ({children}) => {
 
               <ListItem key={item.name} disablePadding>
                 <ListItemButton sx={{ textAlign: 'center' }}>
+                {/* <Link to="#registry"> */}
                 <Link to={item.path}>
-                  <ListItemText primary={item.name} />
-                  </Link>
+                  <ListItemText primary={item.name}  />
+                  </Link >
+                  {/* </Link> */}
                 </ListItemButton>
               </ListItem>
                )
@@ -51,7 +55,7 @@ const Navigation = ({children}) => {
       );
  return (
     <Box sx={{ display: 'flex' }}>
-    <AppBar component="nav" sx={{backgroundColor: '#283618'}}>
+    <AppBar elevation={0} component="nav" sx={{backgroundColor: '#FFF9F1', height: '103px', justifyContent: 'center'}}>
       <Toolbar variant="dense" style={{ display: 'flex', justifyContent: 'space-between'}}>
         <Box>
         <IconButton
@@ -63,24 +67,27 @@ const Navigation = ({children}) => {
         >
           <MenuIcon />
         </IconButton>
-        <Link to="/">
+        <Link to="">
 
         <Typography
           variant="h6"
           component="div"
-          sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+          sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, color: 'black', fontSize: '40px', fontFamily: 'Noto Sans' }}
         >
-          NIKKI AND KAI
+          N / K 
         </Typography>
         </Link>
         </Box>
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           {navItems.map((item) => (
-            <Link to={item.path}>
-            <Button key={item.name} sx={{ color: '#fff' }}>
+            <a key={item.name} href={item.path}>
+            {/* <a href={item.path}> */}
+                 
+            <Button key={item.name} sx={{ color: 'black', fontSize: '24px', textTransform: 'none' }}>
               {item.name}
             </Button>
-            </Link>
+            {/* </a> */}
+            </a>
           ))}
         </Box>
       </Toolbar>

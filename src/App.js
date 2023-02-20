@@ -10,6 +10,10 @@ import React from 'react';
 import Navigation from './Components/Navigation';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import LodgingPage from './Pages/LodgingPage';
+import { createClient } from '@supabase/supabase-js'
+import MainView from './Pages/MainView';
+
 
 
 const theme = createTheme({
@@ -38,32 +42,49 @@ const theme = createTheme({
   },
 });
 
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwbmhkdmNqa3N5aWFycHR4ZWFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzY4MzkyOTgsImV4cCI6MTk5MjQxNTI5OH0.A-tqVNJfHrSlaornxs1JMf8mPuJD4PPv8cJSR5TEzwo'
+const supabaseUrl = 'https://lpnhdvcjksyiarptxeap.supabase.co'
+// const supabaseKey = process.env.SUPABASE_KEY
+export const supabase = createClient(supabaseUrl, supabaseKey)
+
 const App= () => {
 
   // const [page, setPage] = useState('Home')
 
   // const NavigationItems = [{}]
+
+
   
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
          <Router>
-      <Navigation />
+   <Navigation />
 
-    <Routes>
-    <Route exact path="/" element={<HomePage />} />
+
+      {/* <HomePage />
+      <CeremonyPage />
+    <LodgingPage />
+
+      <RegistryPage /> */}
+      {/* <FAQPage /> */}
+
+
+   <Routes>
+
+     <Route exact path="/" element={<MainView />} />
     <Route exact path="/RSVP" element={<RSVPPage />} />
-    <Route exact path="/registry" element={<RegistryPage />} />
+
+    {/* <Route exact path="/" element={<HomePage />} /> */}
+    {/* <Route exact path="/registry" element={<RegistryPage />} />
     <Route path="/accomodations" element={<AccomodationsPage />} />
     <Route path="/things-to-do" element={<ThingsToDoPage />} />
     <Route path="/ceremony" element={<CeremonyPage />} />
-    <Route path="/faq" element={<FAQPage />} />
-
+    <Route path="/faq" element={<FAQPage />} /> */}
 
 </Routes>
- 
 
-</Router>
+</Router> 
       </ThemeProvider>
     </div>
   );

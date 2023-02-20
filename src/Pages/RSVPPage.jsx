@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 // import { styled } from "@mui/material/styles";
 import RSVPForm from "../Components/RSVPForm";
+import { supabase } from "../App";
 
 const RSVPPage = () => {
   const [guests, setGuests] = useState([]);
@@ -42,6 +43,18 @@ const RSVPPage = () => {
     setOpenSnackbar(false);
   };
 
+  const findGuest1 = async () => {
+    let { data: guestss, error } = await supabase
+        .from("guests").select()
+        .select("*")
+        .eq("name", guestName)
+        .order("id", { ascending: false });
+    if (error) console.log("error", error);
+    else setGuests(guestss);
+    console.log('data', guestss)
+    console.log('guests', guests)
+
+};
   const findGuest = () => {
     console.log(guestName);
     // try {
@@ -118,13 +131,13 @@ const RSVPPage = () => {
               onChange={(e) => setGuestName(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  findGuest();
+                  findGuest1();
                 }
               }}
             ></TextField>
             <Button
               onClick={(e) => {
-                findGuest();
+                findGuest1();
               }}
             >
               Enter

@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 const HomePage =()=> {
     return (
         <div className="homePageContainer">
-            <div className="photoDiv">
+            {/* <div className="photoDiv">
              {/* <img src="nikkiandkai3screenshot.jpg" alt="nikki and kai holding puppy linda" />  */}
-            </div>
-            <div className="textDiv">
+            {/* </div> */} 
+            {/* <div className="textDiv">
               <Box sx={{ display: 'flex', flexDirection: 'column'}}>
                 <Typography variant="primary" sx={{padding: '.5rem'}}>
               come celebrate with us
@@ -29,7 +29,7 @@ const HomePage =()=> {
 
               </Box>
               </Box>
-            </div>
+            </div> */}
       </div>
     )
 }

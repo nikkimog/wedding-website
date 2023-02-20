@@ -1,17 +1,27 @@
-import { Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Typography, Box, Link} from '@mui/material';
 import React from 'react'
-import FAQAccordion from '../Components/FAQAccordion';
 
 const FAQPage = () => {
 
     return (
-        <Box style={{ height: '100%', width: '80%', margin: 'auto'}}>
-            <Typography style={{ margin: '3rem'}}>Frequently Asked Questions </Typography>
-            <FAQAccordion question={'What should I wear?'} answer={' First off, great question. Keeping in mind the warm nature of the month of February, wear something that you feel good in! I /> have a personal distaste for flip flops, so please avoid those. Otherwise, have fun and look good 😎'} />
-            <FAQAccordion question={'Wait - what will the weather be?'} answer={'February is the end of summer in South Africa. The weather will range from 60 degrees F to 80 degrees F with a light breeze. Hopefully it will be absolutely beautiful!'} />
-            <FAQAccordion question={'Can I bring kids?'} answer={'idk yet'} />
-      </Box>
+
+        <Box
+        id="faq"
+          style={{ height: "100%", margin: "0 74px", padding: "125px 0" }}
+        >
+        <Box sx={{ flex: "1", textAlign: "left" }}>
+        <Typography sx={{ fontFamily: "Cardo", fontSize: "64px", textAlign: "left" }}>
+           FAQ
+            </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: '24px'}}>Q: What should I wear? </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: '24px'}}>A: Cocktail with a garden party spin. </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: '24px', paddingTop: '18px'}}>Q: What will the weather be?</Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: '24px'}}>A: February is the end of summer in South Africa. The weather will range from 60 degrees F to 80 degrees F with a light breeze. Hopefully it will be absolutely beautiful! </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: '24px',  paddingTop: '18px'}}>Q: Will the ceremony be indoors or outdoors? </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: '24px'}}>A: Our ceremony and cocktail hour will be hosted outdoors followed by a reception indoors. </Typography>
+        </Box>
+        </Box>
+
     )
 }
 

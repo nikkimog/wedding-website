@@ -5,7 +5,7 @@ import { Box, Typography } from '@mui/material';
 const AccomodationsPage = () => {
 
     return (
-        <>
+        <Box id="lodging">
         <Typography variant="h3" style={{ padding: '2rem'}}>Accomodation Details</Typography>
         <Box sx={{display: 'flex', width: '80%', justifyContent: 'center', margin: 'auto'}}>
             <Box sx={{ borderRight: '1.5px solid black', padding: '3rem', width: '50%'}}>
@@ -62,7 +62,7 @@ const AccomodationsPage = () => {
         //     Once we get an idea of who is renting a car and who will need transportation and from where 
         //     we will provide more details.
         // </p> */}
-        </>
+        </Box>
     )
 }
 
