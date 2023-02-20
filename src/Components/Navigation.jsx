@@ -41,9 +41,9 @@ const Navigation = ({children}) => {
               <ListItem key={item.name} disablePadding>
                 <ListItemButton sx={{ textAlign: 'center' }}>
                 {/* <Link to="#registry"> */}
-                <a href={`https://www.monumental-trifle-953ce7.netlify.app${item.path}`}>
+                <Link to={item.path}>
                   <ListItemText sx={{color: 'black'}} primary={item.name}  />
-                  </a >
+                  </Link >
                   {/* </Link> */}
                 </ListItemButton>
               </ListItem>
