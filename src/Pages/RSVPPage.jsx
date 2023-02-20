@@ -4,7 +4,7 @@ import {
   Box,
   Button,
   TextField,
-//   RadioGroup,
+  //   RadioGroup,
   Snackbar,
   Alert,
 } from "@mui/material";
@@ -17,8 +17,8 @@ const RSVPPage = () => {
   const [guestName, setGuestName] = useState("");
   const [foundGuest, setFoundGuest] = useState(false);
   const [attemptMade, setAttemptMade] = useState(false);
-//   const [guestDescription, setGuestDescription] = useState("");
-  const [error, ] = useState("");
+  //   const [guestDescription, setGuestDescription] = useState("");
+  const [error] = useState("");
   const [open, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
@@ -45,16 +45,16 @@ const RSVPPage = () => {
 
   const findGuest1 = async () => {
     let { data: guestss, error } = await supabase
-        .from("guests").select()
-        .select("*")
-        .eq("name", guestName)
-        .order("id", { ascending: false });
+      .from("guests")
+      .select()
+      .select("*")
+      .eq("name", guestName)
+      .order("id", { ascending: false });
     if (error) console.log("error", error);
     else setGuests(guestss);
-    console.log('data', guestss)
-    console.log('guests', guests)
-
-};
+    console.log("data", guestss);
+    console.log("guests", guests);
+  };
   // const findGuest = () => {
   //   console.log(guestName);
   //   // try {
@@ -123,10 +123,17 @@ const RSVPPage = () => {
       )}
       {!foundGuest && !attemptMade && (
         <Box>
-          <Typography variant="h5" sx={{ padding: "20px" }}>
-            enter your name below to find your invitation details
+          <Box>
+            <Typography
+              sx={{ fontFamily: "Cardo", fontSize: "64px", textAlign: "left" }}
+            >
+              RSVP
+            </Typography>
+          </Box>
+          <Typography variant="h5" sx={{ padding: "20px 0", textAlign: 'left' }}>
+            First and Last Name
           </Typography>
-          <Box style={{ display: "flex", justifyContent: "center" }}>
+          <Box style={{ display: "flex"}}>
             <TextField
               onChange={(e) => setGuestName(e.target.value)}
               onKeyDown={(e) => {
@@ -136,6 +143,8 @@ const RSVPPage = () => {
               }}
             ></TextField>
             <Button
+            variant="contained"
+            sx={{margin: '0 5px'}}
               onClick={(e) => {
                 findGuest1();
               }}
@@ -150,7 +159,7 @@ const RSVPPage = () => {
           <RSVPForm guests={guests} formSubmitted={formSubmitted} />
 
           <Typography>
-            Whoops, this isn't me! 
+            Whoops, this isn't me!
             <Button
               onClick={() => {
                 setFoundGuest(false);

@@ -42,7 +42,7 @@ const Navigation = ({children}) => {
                 <ListItemButton sx={{ textAlign: 'center' }}>
                 {/* <Link to="#registry"> */}
                 <Link to={item.path}>
-                  <ListItemText primary={item.name}  />
+                  <ListItemText sx={{color: 'black'}} primary={item.name}  />
                   </Link >
                   {/* </Link> */}
                 </ListItemButton>
@@ -63,7 +63,7 @@ const Navigation = ({children}) => {
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: 'none' } }}
+          sx={{ mr: 2, display: { sm: 'none' }, color: 'black' }}
         >
           <MenuIcon />
         </IconButton>
