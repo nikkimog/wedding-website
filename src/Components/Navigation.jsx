@@ -16,19 +16,22 @@ const Navigation = ({children}) => {
     // {name: 'Things to Do', path: '/things-to-do'},
     {name: 'Ceremony', path: '/#ceremony'},
     {name:  'Lodging', path: '/#lodging'},
+    {name: 'Our Story', path: '/#ourstory'},
     {name:  'Registry', path: '/#registry'},
     {name: 'FAQ', path: '/#faq'},
+
 
   ]
     const drawerWidth = 240;
     const drawer = (
 
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor: '#FFF9F1', height: '100%' }}>
             {/* <Link to='/'> */}
           <Typography variant="h6" sx={{ my: 2 }}>
           <Link to="/">
-
+<Typography sx={{color: 'black', display: 'flex', padding: '8px 16px'}}>
             N / K
+            </Typography>
           </Link>
 
           </Typography>
@@ -41,9 +44,9 @@ const Navigation = ({children}) => {
               <ListItem key={item.name} disablePadding>
                 <ListItemButton sx={{ textAlign: 'center' }}>
                 {/* <Link to="#registry"> */}
-                <Link to={item.path}>
+                <a href={item.path}>
                   <ListItemText sx={{color: 'black'}} primary={item.name}  />
-                  </Link >
+                  </a >
                   {/* </Link> */}
                 </ListItemButton>
               </ListItem>

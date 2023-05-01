@@ -13,6 +13,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import LodgingPage from './Pages/LodgingPage';
 import { createClient } from '@supabase/supabase-js'
 import MainView from './Pages/MainView';
+import { ViewportProvider } from './ViewportProvider';
 
 
 
@@ -57,9 +58,11 @@ const App= () => {
   
   return (
     <div className="App">
+      <ViewportProvider>
       <ThemeProvider theme={theme}>
          <Router>
    <Navigation />
+
 
 
       {/* <HomePage />
@@ -74,18 +77,11 @@ const App= () => {
 
      <Route exact path="/" element={<MainView />} />
     <Route exact path="/RSVP" element={<RSVPPage />} />
-
-    {/* <Route exact path="/" element={<HomePage />} /> */}
-    {/* <Route exact path="/registry" element={<RegistryPage />} />
-    <Route path="/accomodations" element={<AccomodationsPage />} />
-    <Route path="/things-to-do" element={<ThingsToDoPage />} />
-    <Route path="/ceremony" element={<CeremonyPage />} />
-    <Route path="/faq" element={<FAQPage />} /> */}
-
 </Routes>
 
 </Router> 
       </ThemeProvider>
+      </ViewportProvider>
     </div>
   );
 }

@@ -1,24 +1,16 @@
 import { Typography, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { SectionBox } from "../Components/SectionBox";
 
 const CeremonyPage = (theme) => {
-  const mobile = useMediaQuery('(max-width:600px)');
-  return (
-    <Box
-    id="ceremony"
-      style={{ height: "100%", margin: "0 74px", padding: "125px 0" }}
-    >
+  const mobile = useMediaQuery('(max-width:680px)');
 
-      <Box 
-      >
-      <Typography
-        sx={{ fontFamily: "Cardo", fontSize: "64px", textAlign: "left" }}
-      >
-        Ceremony
-      </Typography>
-      </Box>
-      <Box style={{ margin: "74px 0", display: "flex", flexDirection: mobile ? 'column' : 'row'   }}>
+
+  return (
+
+    <SectionBox title="Ceremony" id="ceremony" >
+      <Box style={{ margin: mobile ? "30px 0" : "74px 0", display: "flex", flexDirection: mobile ? 'column' : 'row'   }}>
         <Box sx={{ flex: "1", textAlign: "left" }}>
           <Box>
             <Typography
@@ -69,7 +61,7 @@ const CeremonyPage = (theme) => {
           </Box>
         </Box>
       </Box>
-    </Box>
+      </SectionBox>
   );
 };
 

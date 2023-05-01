@@ -30,11 +30,30 @@ h3 {
   /* background-size: 50% 100%; */
   
 }
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 600px){
   .homePageContainer {
     flex-direction: column;
     width: 100%;
     background-size: 100%;
+    height: 280px;
+  
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 1000px){
+  .homePageContainer {
+    flex-direction: column;
+    width: 100%;
+    background-size: 100%;
+    height: 500px;
+  
+  }
+}
+@media only screen and (min-width: 450px) and (max-width: 600px){
+  .homePageContainer {
+    flex-direction: column;
+    width: 100%;
+    background-size: 100%;
+    height: 375px;
   
   }
 }
@@ -133,4 +152,48 @@ h3 {
   display: flex;
   align-items: center;
   flex-direction:column;
+}
+
+.rsvpPhoto { 
+  height: 100vh;
+  background-image: url('rsvpphoto.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.photoOne {
+  background-image: url('photoOne.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.photoTwo {
+  background-image: url('photoTwo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.lindaCheeseFries {
+  background-image: url('lindacheesefries.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}  
+
+.charlotte { 
+  background-image: url('charlotte.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.kaiphd { 
+  background-image: url('kaiphd.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.sfsunset { 
+  background-image: url('sfsunset.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

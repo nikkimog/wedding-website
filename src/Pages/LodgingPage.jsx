@@ -1,24 +1,16 @@
 import { Link, Typography, useMediaQuery } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import React from "react";
+import { SectionBox } from "../Components/SectionBox";
 
 const LodgingPage = (theme) => {
   const mobile = useMediaQuery("(max-width:600px)");
   return (
-    <Box
-      id="lodging"
-      style={{ height: "100%", margin: "0 74px", padding: "125px 0" }}
-    >
-      <Box>
-        <Typography
-          sx={{ fontFamily: "Cardo", fontSize: "64px", textAlign: "left" }}
-        >
-          Cape Town
-        </Typography>
-      </Box>
+
+    <SectionBox title="Cape Town" id="lodging">
       <Box
         style={{
-          margin: "74px 0",
+          margin: mobile ? "30px 0" : "74px 0",
           display: "flex",
           flexDirection: mobile ? "column" : "row",
         }}
@@ -202,14 +194,14 @@ const LodgingPage = (theme) => {
       </Box>
       <Box>
         <Typography
-          sx={{ fontFamily: "Cardo", fontSize: "64px", textAlign: "left" }}
+          sx={{ fontFamily: "Cardo", fontSize: mobile? '50px':  "64px", textAlign: "left" }}
         >
           Stellenbosch
         </Typography>
       </Box>
       <Box
         style={{
-          margin: "74px 0",
+          margin: mobile ? "30px 0" : "74px 0",
           display: "flex",
           flexDirection: mobile ? "column" : "row",
         }}
@@ -360,7 +352,7 @@ const LodgingPage = (theme) => {
           </Box>
         </Box>
       </Box>
-    </Box>
+      </SectionBox>
   );
 };
 

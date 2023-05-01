@@ -1,12 +1,15 @@
-import React from 'react'
+/* eslint-disable no-lone-blocks */
+import React, { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material';
+
 
 
 const AccomodationsPage = () => {
 
-    return (
-        <Box id="lodging">
-        <Typography variant="h3" style={{ padding: '2rem'}}>Accomodation Details</Typography>
+
+
+
+        {/* <Typography variant="h3" style={{ padding: '2rem'}}>Accomodation Details</Typography>
         <Box sx={{display: 'flex', width: '80%', justifyContent: 'center', margin: 'auto'}}>
             <Box sx={{ borderRight: '1.5px solid black', padding: '3rem', width: '50%'}}>
             <Typography variant="h5" style={{padding: '1rem'}}>Cape Town</Typography>
@@ -61,9 +64,8 @@ const AccomodationsPage = () => {
         //     We will also arrange transportation home from Tokara into Stellenbosch on Saturday night. 
         //     Once we get an idea of who is renting a car and who will need transportation and from where 
         //     we will provide more details.
-        // </p> */}
-        </Box>
-    )
+        // </p> */} 
+        {/* </Box> */}
 }
 
-export default AccomodationsPage;
+ export default AccomodationsPage;
