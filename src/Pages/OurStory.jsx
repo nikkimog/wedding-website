@@ -1,9 +1,9 @@
-import { Typography, Box, useMediaQuery, Button, Grid } from "@mui/material";
+import { Typography, Button, Grid } from "@mui/material";
 import React from "react";
 import { SectionBox } from "../Components/SectionBox";
 
 const OurStory = () => {
-  const mobile = useMediaQuery("(max-width:600px)");
+  // const mobile = useMediaQuery("(max-width:600px)");
   const [readMore, setReadMore] = React.useState(false);
 
   return (

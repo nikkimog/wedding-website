@@ -1,6 +1,6 @@
 import { Typography, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SectionBox } from "../Components/SectionBox";
 
 const CeremonyPage = (theme) => {

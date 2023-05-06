@@ -24,6 +24,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
   const [guestFourRSVP, setGuestFourRSVP] = useState(guestFour.RSVPstatus || null);
   const [guestFiveRSVP, setGuestFiveRSVP] = useState(guestFive.RSVPstatus || null);
   const [submitted, setSubmitted] = useState(false)
+  const [submissionError, setSubmissionError] = useState(false)
 
   const [RSVPMessage, setRSVPMessage] = useState("");
 
@@ -45,7 +46,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
   };
   const sendRSVP = async () => {
     formSubmitted();
-    const { error } = await supabase
+    const { error: guestOneError } = await supabase
       .from("guests")
       .update({
         RSVPstatus: guestOneRSVP,
@@ -63,6 +64,9 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           messageForCouple: RSVPMessage,
         })
         .eq("id", guestTwo.id);
+        if (error){
+          setSubmissionError(true)
+        }
     }
     if (guestThree) {
       const { error } = await supabase
@@ -73,6 +77,9 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           messageForCouple: RSVPMessage,
         })
         .eq("id", guestThree.id);
+        if (error){
+          setSubmissionError(true)
+        }
     }
     if (guestFour) {
       const { error } = await supabase
@@ -83,6 +90,9 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           messageForCouple: RSVPMessage,
         })
         .eq("id", guestFour.id);
+        if (error){
+          setSubmissionError(true)
+        }
     }
     if (guestFive) {
       const { error } = await supabase
@@ -93,8 +103,11 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           messageForCouple: RSVPMessage,
         })
         .eq("id", guestFive.id);
+        if (error){
+          setSubmissionError(true)
+        }
     }
-    if (!error){
+    if (!submissionError){
       formSubmitted()
       setSubmitted(true)
     }
