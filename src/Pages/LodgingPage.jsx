@@ -226,12 +226,12 @@ const LodgingPage = (theme) => {
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
               For ease and safety of our guests, we will have a shuttle running
-              to and from our venut to any accomodations in Stellenbosch proper.
+              to and from our venue to any accomodations in Stellenbosch proper.
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
               We've listed some hotels and guesthouses below but feel free to
               peruse the area on Google Maps and book a place that suits your
-              needs
+              needs.
             </Typography>
           </Box>
         </Box>

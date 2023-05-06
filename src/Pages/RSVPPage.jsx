@@ -23,24 +23,15 @@ const RSVPPage = () => {
   const [open, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
-  const [initialGuest, setInitialGuest] = useState([]);
+  const [submitted, setSubmitted] = useState(false)
   const mobile = useMediaQuery("(max-width:600px)");
 
   const formSubmitted = () => {
-    // setFoundGuest(false);
-    // setGuests([]);
-    setSnackbarMessage("Thanks for RSVPing!");
-    setOpenSnackbar(true);
-    setSnackbarSeverity("success");
+    setSubmitted(true)
   };
 
-  // const StyledSnackbar = styled((props) => <Snackbar {...props} />)(
-  //   ({ theme }) => ({
-  //     "& .MuiSnackbar-root": {
-  //       top: theme.spacing('100px'),
-  //     },
-  //   })
-  // );
+
+
 
   const handleClose = () => {
     setOpenSnackbar(false);
@@ -54,54 +45,47 @@ const RSVPPage = () => {
       .ilike("name", guestName)
       .order("id", { ascending: false });
 
-    console.log("guestsInitially", initialGuest);
 
-    if (error) console.log("error", error);
-    else setInitialGuest(initialGuest);
+    if (error){
+      setOpenSnackbar(true)
+      setSnackbarMessage('Server error! Please try again or contact Nikki or Kai.')
+      setSnackbarSeverity('error')
+    } 
+    if (!initialGuest.length){
+      setAttemptMade(true)
+    } else { 
+      getAllGuests(initialGuest)
+    }
 
-    // if (guests[0]?.name) {
-    //           setFoundGuest(true);
-    //         }
-    // console.log("guests", guests);
   };
 
-  useEffect(() => {
-    const getAllGuests = async () => {
-      console.log("initialGuestingetallguests", initialGuest)
+    const getAllGuests = async (initialGuest) => {
       if (initialGuest[0]?.coupleId) {
-        console.log("am i in here");
         let { data: allGuests, error } = await supabase
           .from("guests")
           .select()
           .select("*")
           .eq("coupleId", initialGuest[0].coupleId)
-          .order("id", { ascending: false });
+          .order("id", { ascending: true });
 
-        console.log("allGuests", allGuests);
      
-        if (error) console.log("error", error);
-        else setGuests(allGuests);
+        if (error) {
+          setOpenSnackbar(true)
+          setSnackbarMessage('Server error! Please try again or contact Nikki or Kai.')
+          setSnackbarSeverity('error')
+        } else setGuests(allGuests);
       } else { 
         setGuests(initialGuest)
       }
-      console.log('guests', guests)
 
       if (initialGuest[0]?.name) {
         setFoundGuest(true);
-      } else { 
+        setAttemptMade(true)
+      } else if (initialGuest[0]){ 
         setAttemptMade(true)
       }
     
     };
-    getAllGuests();
-
-
-   
-
-    console.log("guests", guests);
-
-  }, [initialGuest, error]);
-
 
   return (
     <Box
@@ -126,9 +110,11 @@ const RSVPPage = () => {
             {snackbarMessage}
           </Alert>
         </Snackbar>
-        {attemptMade && !foundGuest && (
+        {attemptMade && !foundGuest && !submitted && 
           <>
+
             <>
+            <Typography>hi{submitted}{attemptMade}</Typography>
             <Typography sx={{display: 'flex', fontFamily: 'Manrope', fontSize: '20px', padding: '50px'}}>
             {" "}
             Gee willikers - I cant find your name! Would you mind searching again (and make sure
@@ -150,7 +136,7 @@ const RSVPPage = () => {
                 Search Again
               </Button>
           </>
-        )}
+        }
         {!foundGuest && !attemptMade && (
           <Box>
             <Box>
@@ -193,7 +179,7 @@ const RSVPPage = () => {
             </Box>
           </Box>
         )}
-        {foundGuest && !error && (
+        {foundGuest && !error && !submitted && (
           <>
             <RSVPForm guests={guests} formSubmitted={formSubmitted} />
 
@@ -213,7 +199,13 @@ const RSVPPage = () => {
             </Typography>
           </>
         )}
+              {submitted &&
+      <Box display="flex" sx={{justifyContent: 'center', marginTop: '50px'}}>
+        <Typography sx={{fontFamily: 'Manrope', fontSize: '20px'}}>Thank you for RSVPing!</Typography>
+         </Box>
+        }
       </Box>
+
       <Box className="rsvpPhoto" sx={{ flex: 1 }} />
     </Box>
   );

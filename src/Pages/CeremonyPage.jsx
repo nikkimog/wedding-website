@@ -24,7 +24,7 @@ const CeremonyPage = (theme) => {
             >
               Date & Time
             </Typography>
-            <Typography sx={{fontFamily: 'Manrope', fontSize: '24px'}}>February 24th, 4:30PM</Typography>
+            <Typography sx={{fontFamily: 'Manrope', fontSize: '24px'}}>February 24th, 4:00PM</Typography>
           </Box>
           <Box>
             <Typography

@@ -18,12 +18,12 @@ const RSVPForm = ({ guests, formSubmitted }) => {
   const guestThree = guests[2];
   const guestFour = guests[3];
   const guestFive = guests[4]
-  const [guestOneRSVP, setGuestOneRSVP] = React.useState(null);
-  const [guestTwoRSVP, setGuestTwoRSVP] = React.useState(null);
-  const [guestThreeRSVP, setGuestThreeRSVP] = React.useState(null);
-  const [guestFourRSVP, setGuestFourRSVP] = React.useState(null);
-  const [guestFiveRSVP, setGuestFiveRSVP] = React.useState(null);
-
+  const [guestOneRSVP, setGuestOneRSVP] = useState(guestOne.RSVPstatus || null);
+  const [guestTwoRSVP, setGuestTwoRSVP] = useState(guestTwo.RSVPstatus || null);
+  const [guestThreeRSVP, setGuestThreeRSVP] = useState(guestThree.RSVPstatus || null);
+  const [guestFourRSVP, setGuestFourRSVP] = useState(guestFour.RSVPstatus || null);
+  const [guestFiveRSVP, setGuestFiveRSVP] = useState(guestFive.RSVPstatus || null);
+  const [submitted, setSubmitted] = useState(false)
 
   const [RSVPMessage, setRSVPMessage] = useState("");
 
@@ -64,6 +64,40 @@ const RSVPForm = ({ guests, formSubmitted }) => {
         })
         .eq("id", guestTwo.id);
     }
+    if (guestThree) {
+      const { error } = await supabase
+        .from("guests")
+        .update({
+          RSVPstatus: guestThreeRSVP,
+          haveRSVPd: true,
+          messageForCouple: RSVPMessage,
+        })
+        .eq("id", guestThree.id);
+    }
+    if (guestFour) {
+      const { error } = await supabase
+        .from("guests")
+        .update({
+          RSVPstatus: guestFourRSVP,
+          haveRSVPd: true,
+          messageForCouple: RSVPMessage,
+        })
+        .eq("id", guestFour.id);
+    }
+    if (guestFive) {
+      const { error } = await supabase
+        .from("guests")
+        .update({
+          RSVPstatus: guestFiveRSVP,
+          haveRSVPd: true,
+          messageForCouple: RSVPMessage,
+        })
+        .eq("id", guestFive.id);
+    }
+    if (!error){
+      formSubmitted()
+      setSubmitted(true)
+    }
   };
 
   console.log("guestOneRSVP", guestOneRSVP);
@@ -71,6 +105,12 @@ const RSVPForm = ({ guests, formSubmitted }) => {
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "column", padding: "50px" }}>
+        <>
+        {guestOne.RSVPstatus && <Box>
+          <Typography sx={{fontFamily: 'Manrope', padding: '.75rem 0'}}>You have already RSVP'd. If you need to 
+          change your RSVP, update your response and click submit again.
+          </Typography>
+        </Box>}
         <Box key={guestOne.name} sx={{ padding: ".5rem 0" }}>
           <Typography
             sx={{ display: "flex", fontFamily: "Manrope", fontSize: "20px" }}
@@ -267,7 +307,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
             </Box>
           </>
         )}
-                        {guestFive && (
+        {guestFive && (
           <>
           <Box key={guestFive.name} sx={{ padding: ".5rem 0", marginTop: '1rem' }}>
           <Typography sx={{display: 'flex', fontFamily: 'Manrope', fontSize: '20px'}}>
@@ -333,6 +373,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
         >
           submit
         </Button>
+        </>
       </Box>
     </>
   );
