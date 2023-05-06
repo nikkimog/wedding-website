@@ -13,7 +13,7 @@ const FAQPage = () => {
 
         <SectionBox title="FAQ" id="faq" >
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize }}>Q: What should I wear? </Typography>
-        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Cocktail with a garden party spin. </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Cocktail.  </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize, paddingTop: '18px'}}>Q: What will the weather be?</Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: February is the end of summer in South Africa. The weather will range from 60 degrees F to 80 degrees F with a light breeze. Hopefully it will be absolutely beautiful! </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize,  paddingTop: '18px'}}>Q: Will the ceremony be indoors or outdoors? </Typography>

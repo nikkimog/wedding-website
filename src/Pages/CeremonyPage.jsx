@@ -11,7 +11,7 @@ const CeremonyPage = (theme) => {
 
     <SectionBox title="Ceremony" id="ceremony" >
       <Box style={{ margin: mobile ? "30px 0" : "74px 0", display: "flex", flexDirection: mobile ? 'column' : 'row'   }}>
-        <Box sx={{ flex: "1", textAlign: "left" }}>
+        <Box sx={{ flex: "1", textAlign: "left", display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <Box>
             <Typography
               sx={{
@@ -42,7 +42,7 @@ const CeremonyPage = (theme) => {
             <Typography sx={{fontFamily: 'Manrope', fontSize: '24px'}}>Stellenbosch, South Africa</Typography>
           </Box>
         </Box>
-        <Box sx={{ flex: "1", textAlign: "left", justifyContent: 'space-evenly', display: 'flex' }}>
+        <Box sx={{ flex: "1", textAlign: "left", justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column' }}>
           <Box>
             <Typography
               sx={{
@@ -58,6 +58,21 @@ const CeremonyPage = (theme) => {
             <Typography sx={{fontFamily: 'Manrope', fontSize: '24px'}}>60-80° F with a slight breeze.</Typography>
             <Typography sx={{fontFamily: 'Manrope', fontSize: '24px'}}>It’s the end of summer in South Africa.</Typography>
             <Typography sx={{fontFamily: 'Manrope', fontSize: '24px'}}>Hopefully it will be absolutely beautiful!</Typography>
+          </Box>
+          <Box>
+          <Typography
+              sx={{
+                margin: "24px 0",
+                padding: "10px 0",
+                borderBottom: "solid 1px black",
+                fontFamily: "Lato",
+                width: "90px",
+              }}
+            >
+              Dress Code
+            </Typography>
+            <Typography sx={{fontFamily: 'Manrope', fontSize: '24px'}}>Cocktail</Typography>
+
           </Box>
         </Box>
       </Box>
