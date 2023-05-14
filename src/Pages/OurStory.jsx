@@ -1,4 +1,4 @@
-import { Typography, Button, Grid, Box } from "@mui/material";
+import { Typography, Button, Grid } from "@mui/material";
 import React from "react";
 import { SectionBox } from "../Components/SectionBox";
 
@@ -11,14 +11,14 @@ const OurStory = () => {
       <Typography sx={{ fontFamily: "Lato", paddingBottom: '5px' }}>
         {" "}
         Nikki was at Linda's (the famed bar and grill in Chapel Hill) the night
-        Kai and Nikki first met. They carried the legacy of that fateful night
-        on in naming their sweet golden retriever after the bar and in honor of
-        the cheese fries that were a staple during the early days of their
-        relationship.
+        Kai and Nikki first met.
         <Button  onClick={() => setReadMore(!readMore)}>{!readMore ? 'See More...' : 'See Less...'}</Button>
         {readMore && (
           <Typography sx={{ fontFamily: "Lato", marginBottom: '10px' }}>
-            It was immediately clear that Nikki and Kai were made for one
+            They carried the legacy of that fateful night
+        on in naming their sweet golden retriever after the bar and in honor of
+        the cheese fries that were a staple during the early days of their
+        relationship. It was immediately clear that Nikki and Kai were made for one
             another, and after a few months they planned a trip to South Africa
             for Kai to visit home with the added benefit of Nikki meeting Kai's
             family and getting to see Kai's hometown. After that visit, Nikki
