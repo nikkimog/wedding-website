@@ -11,7 +11,7 @@ const RegistryPage = () => {
       </Typography>
       <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
         If you are not able to attend and would like to give a gift, please
-        follow this link to an <Link to="/"> external registry.</Link>
+        follow this link to our <Link to="/"> external registry.</Link>
       </Typography>
     </SectionBox>
   );

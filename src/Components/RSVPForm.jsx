@@ -9,25 +9,42 @@ import {
   Radio,
   FormLabel,
   FormControlLabel,
+  Snackbar,
+  Alert
 } from "@mui/material";
 import { supabase } from "../App";
+import emailjs from 'emailjs-com'
 
 const RSVPForm = ({ guests, formSubmitted }) => {
-  const guestOne = guests[0];
-  const guestTwo = guests[1];
-  const guestThree = guests[2];
-  const guestFour = guests[3];
-  const guestFive = guests[4]
-  const [guestOneRSVP, setGuestOneRSVP] = useState(guestOne.RSVPstatus || null);
-  const [guestTwoRSVP, setGuestTwoRSVP] = useState(guestTwo.RSVPstatus || null);
-  const [guestThreeRSVP, setGuestThreeRSVP] = useState(guestThree.RSVPstatus || null);
-  const [guestFourRSVP, setGuestFourRSVP] = useState(guestFour.RSVPstatus || null);
-  const [guestFiveRSVP, setGuestFiveRSVP] = useState(guestFive.RSVPstatus || null);
+  const guestOne = guests[0] 
+  const guestTwo = guests[1] 
+  const guestThree = guests[2] 
+  const guestFour = guests[3]   
+  const guestFive = guests[4] 
+  const [guestOneRSVP, setGuestOneRSVP] = useState(guestOne?.RSVPstatus || null);
+  const [guestOneDiet, setGuestOneDiet] = useState(guestOne?.dietary_restrictions || '');
+  const [guestTwoRSVP, setGuestTwoRSVP] = useState(guestTwo?.RSVPstatus || null);
+  const [guestTwoDiet, setGuestTwoDiet] = useState(guestTwo?.dietary_restrictions || '');
+  const [guestThreeRSVP, setGuestThreeRSVP] = useState(guestThree?.RSVPstatus || null);
+  const [guestThreeDiet, setGuestThreeDiet] = useState(guestThree?.dietary_restrictions || '');
+  const [guestFourRSVP, setGuestFourRSVP] = useState(guestFour?.RSVPstatus || null);
+  const [guestFourDiet, setGuestFourDiet] = useState(guestFour?.dietary_restrictions || '');
+  const [guestFiveRSVP, setGuestFiveRSVP] = useState(guestFive?.RSVPstatus || null);
+  const [guestFiveDiet, setGuestFiveDiet] = useState(guestFive?.dietary_restrictions || '');
+  // const [emailAddress, setEmailAddress] = useState(null)
+
   const [, setSubmitted] = useState(false)
-  const [submissionError, setSubmissionError] = useState(false)
 
-  const [RSVPMessage, setRSVPMessage] = useState("");
+  const [RSVPMessage, setRSVPMessage] = useState(guestOne?.messageForCouple || "");
+  const [open, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
 
+  emailjs.init("XJfBga4GxpPOnGycs");
+
+  const handleClose = () => {
+    setOpenSnackbar(false);
+  };
   const handleGuestOneChange = (event) => {
     setGuestOneRSVP(event.target.value);
   };
@@ -45,18 +62,20 @@ const RSVPForm = ({ guests, formSubmitted }) => {
     setGuestFiveRSVP(event.target.value);
   };
   const sendRSVP = async () => {
-    formSubmitted();
+    let submissionError = false
     const { error } = await supabase
       .from("guests")
       .update({
         RSVPstatus: guestOneRSVP,
         haveRSVPd: true,
         messageForCouple: RSVPMessage,
+        dietary_restrictions: guestOneDiet
       })
       .eq("id", guestOne.id);
       if (error){
-        setSubmissionError(true)
+        submissionError = true
       }
+      console.log('error', error)
 
     if (guestTwo) {
       const { error } = await supabase
@@ -65,10 +84,11 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           RSVPstatus: guestTwoRSVP,
           haveRSVPd: true,
           messageForCouple: RSVPMessage,
+          dietary_restrictions: guestTwoDiet
         })
         .eq("id", guestTwo.id);
         if (error){
-          setSubmissionError(true)
+        submissionError = true
         }
     }
     if (guestThree) {
@@ -78,10 +98,11 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           RSVPstatus: guestThreeRSVP,
           haveRSVPd: true,
           messageForCouple: RSVPMessage,
+          dietary_restrictions: guestThreeDiet
         })
         .eq("id", guestThree.id);
         if (error){
-          setSubmissionError(true)
+        submissionError = true
         }
     }
     if (guestFour) {
@@ -91,10 +112,11 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           RSVPstatus: guestFourRSVP,
           haveRSVPd: true,
           messageForCouple: RSVPMessage,
+          dietary_restrictions: guestFourDiet
         })
         .eq("id", guestFour.id);
         if (error){
-          setSubmissionError(true)
+        submissionError = true
         }
     }
     if (guestFive) {
@@ -104,24 +126,54 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           RSVPstatus: guestFiveRSVP,
           haveRSVPd: true,
           messageForCouple: RSVPMessage,
+          dietary_restrictions: guestFiveDiet
         })
         .eq("id", guestFive.id);
         if (error){
-          setSubmissionError(true)
+        submissionError = true
         }
     }
+
     if (!submissionError){
+      const message = `
+        guestOne: ${guestOne.name} said ${guestOneRSVP},
+        guestTwo: ${guestTwo.name} said ${guestTwoRSVP},
+        guestThree: ${guestThree.name} said ${guestThreeRSVP},
+        guestFour:  ${guestFour.name} said ${guestFourRSVP},
+        guestFive: ${guestFive.name} said ${guestFiveRSVP},
+        message: ${RSVPMessage}
+      `
+      const templateParams= {  message: message}
+      try { 
+        await emailjs.send('service_a342ldn', 'template_q3uhh5m', templateParams)
+      } catch (error) {
+        console.log('error', error)}
       formSubmitted()
       setSubmitted(true)
+    } else { 
+      setOpenSnackbar(true)
+      setSnackbarMessage('Server error! Please try again or contact Nikki or Kai.')
+      setSnackbarSeverity('error')
     }
   };
 
-  console.log("guestOneRSVP", guestOneRSVP);
 
   return (
     <>
-      <Box sx={{ display: "flex", flexDirection: "column", padding: "50px" }}>
+      <Box sx={{ display: "flex", flexDirection: "column", padding: "50px", textAlign: 'left' }}>
         <>
+        <Snackbar
+          open={open}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        >
+          <Alert
+            variant="filled"
+            severity={snackbarSeverity}
+            onClose={handleClose}
+          >
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
         {guestOne.RSVPstatus && <Box>
           <Typography sx={{fontFamily: 'Manrope', padding: '.75rem 0'}}>You have already RSVP'd. If you need to 
           change your RSVP, update your response and click submit again.
@@ -132,14 +184,14 @@ const RSVPForm = ({ guests, formSubmitted }) => {
             sx={{ display: "flex", fontFamily: "Manrope", fontSize: "20px" }}
           >
             {" "}
-            Hi, {guestOne.name} - {guestOne.description}{" "}
+            Hi, {guestOne.name}!{" "}
           </Typography>
         </Box>
         <Box sx={{ display: "flex" }}>
           <FormControl>
             <FormLabel id="demo-controlled-radio-buttons-group">
               <Typography
-                sx={{ fontFamily: "Manrope", color: "black", fontSize: "20px" }}
+                sx={{ fontFamily: "Manrope", color: "black", fontSize: "16px" }}
               >
                 {" "}
                 Will you be attending?{" "}
@@ -162,6 +214,11 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                 label="No"
               />
             </RadioGroup>
+            <Typography sx={{fontFamily: 'Manrope', color: 'black', fontSize: '16px', margin: '5px 0'}}>Any dietary restrictions?</Typography>
+            <TextField 
+            value={guestOneDiet}
+          onChange={(e) => setGuestOneDiet(e.target.value)}/>
+            
           </FormControl>
         </Box>
         {guestTwo && (
@@ -178,7 +235,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                 }}
               >
                 {" "}
-                Hi, {guestTwo.name} - {guestTwo.description}{" "}
+                Hi, {guestTwo.name}!{" "}
               </Typography>
             </Box>
             <Box sx={{ display: "flex" }}>
@@ -188,7 +245,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                     sx={{
                       fontFamily: "Manrope",
                       color: "black",
-                      fontSize: "20px",
+                      fontSize: "16px",
                     }}
                   >
                     Will you be attending?
@@ -213,6 +270,10 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                     label="No"
                   />
                 </RadioGroup>
+                <Typography sx={{fontFamily: 'Manrope', color: 'black', fontSize: '16px', margin: '5px 0'}}>Any dietary restrictions?</Typography>
+            <TextField 
+            value={guestTwoDiet}
+          onChange={(e) => setGuestTwoDiet(e.target.value)}/>
               </FormControl>
             </Box>
           </>
@@ -231,7 +292,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                 }}
               >
                 {" "}
-                Hi, {guestThree.name} - {guestThree.description}{" "}
+                Hi, {guestThree.name}!{" "}
               </Typography>
             </Box>
             <Box sx={{ display: "flex" }}>
@@ -241,7 +302,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                     sx={{
                       fontFamily: "Manrope",
                       color: "black",
-                      fontSize: "20px",
+                      fontSize: "16px",
                     }}
                   >
                     Will you be attending?
@@ -266,6 +327,10 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                     label="No"
                   />
                 </RadioGroup>
+                <Typography sx={{fontFamily: 'Manrope', color: 'black', fontSize: '16px', margin: '5px 0'}}>Any dietary restrictions?</Typography>
+            <TextField 
+            value={guestThreeDiet}
+          onChange={(e) => setGuestThreeDiet(e.target.value)}/>
               </FormControl>
             </Box>
           </>
@@ -284,7 +349,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                 }}
               >
                 {" "}
-                Hi, {guestFour.name} - {guestFour.description}{" "}
+                Hi, {guestFour.name}!{" "}
               </Typography>
             </Box>
             <Box sx={{ display: "flex" }}>
@@ -294,7 +359,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                     sx={{
                       fontFamily: "Manrope",
                       color: "black",
-                      fontSize: "20px",
+                      fontSize: "16px",
                     }}
                   >
                     Will you be attending?
@@ -319,6 +384,10 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                     label="No"
                   />
                 </RadioGroup>
+                <Typography sx={{fontFamily: 'Manrope', color: 'black', fontSize: '16px', margin: '5px 0'}}>Any dietary restrictions?</Typography>
+            <TextField 
+            value={guestFourDiet}
+          onChange={(e) => setGuestFourDiet(e.target.value)}/>
               </FormControl>
             </Box>
           </>
@@ -328,13 +397,13 @@ const RSVPForm = ({ guests, formSubmitted }) => {
           <Box key={guestFive.name} sx={{ padding: ".5rem 0", marginTop: '1rem' }}>
           <Typography sx={{display: 'flex', fontFamily: 'Manrope', fontSize: '20px'}}>
             {" "}
-            Hi, {guestFive.name} - {guestFive.description}{" "}
+            Hi, {guestFive.name}!{" "}
           </Typography>
         </Box>
             <Box sx={{ display: "flex"}}>
               <FormControl>
                 <FormLabel id="demo-controlled-radio-buttons-group">
-                  <Typography sx={{fontFamily: 'Manrope', color: 'black', fontSize: '20px' }}>Will you be attending?</Typography>
+                  <Typography sx={{fontFamily: 'Manrope', color: 'black', fontSize: '16px' }}>Will you be attending?</Typography>
                 </FormLabel>
                 <RadioGroup
                   aria-labelledby="demo-controlled-radio-buttons-group"
@@ -355,31 +424,47 @@ const RSVPForm = ({ guests, formSubmitted }) => {
                     label="No"
                   />
                 </RadioGroup>
+                <Typography sx={{fontFamily: 'Manrope', color: 'black', fontSize: '16px', margin: '5px 0'}}>Any dietary restrictions?</Typography>
+            <TextField 
+            value={guestFiveDiet}
+          onChange={(e) => setGuestFiveDiet(e.target.value)}/>
               </FormControl>
             </Box>
           </>
         )}
+        
         <Typography
           sx={{
             display: "flex",
             alignItems: "end",
-            padding: "1rem 0",
+            padding: "1rem 0 5px 0",
             fontFamily: "Manrope",
-            fontSize: "20px",
+            fontSize: "16px",
           }}
         >
           Message for the couple{" "}
-          <Typography sx={{ fontSize: "12px", padding: ".25rem" }}>
+          {/* <Typography sx={{ fontSize: "12px", padding: ".25rem" }}>
             (optional)
-          </Typography>
+          </Typography> */}
         </Typography>
 
         <TextField
           multiline
           minRows={2}
           sx={{ width: "350px" }}
+          value={RSVPMessage}
           onChange={(e) => setRSVPMessage(e.target.value)}
         ></TextField>
+        {/* <Typography
+          sx={{
+            display: "flex",
+            alignItems: "end",
+            padding: "1rem 0",
+            fontFamily: "Manrope",
+            fontSize: "16px",
+          }}
+        >If you'd like a copy of your responses, enter your email below.</Typography>
+        <TextField sx={{width: '350px'}} value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)} /> */}
         <Button
           sx={{ width: "25%", margin: ".5rem 0" }}
           variant="contained"

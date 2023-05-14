@@ -1,4 +1,4 @@
-import { Typography, Button, Grid } from "@mui/material";
+import { Typography, Button, Grid, Box } from "@mui/material";
 import React from "react";
 import { SectionBox } from "../Components/SectionBox";
 
@@ -7,17 +7,17 @@ const OurStory = () => {
   const [readMore, setReadMore] = React.useState(false);
 
   return (
-    <SectionBox id="ourstory" title="Our Story">
-      <Typography sx={{ fontFamily: "Lato" }}>
+    <SectionBox  id="ourstory" title="Our Story">
+      <Typography sx={{ fontFamily: "Lato", paddingBottom: '5px' }}>
         {" "}
         Nikki was at Linda's (the famed bar and grill in Chapel Hill) the night
         Kai and Nikki first met. They carried the legacy of that fateful night
         on in naming their sweet golden retriever after the bar and in honor of
         the cheese fries that were a staple during the early days of their
         relationship.
-        <Button onClick={() => setReadMore(!readMore)}>Read More...</Button>
+        <Button  onClick={() => setReadMore(!readMore)}>{!readMore ? 'See More...' : 'See Less...'}</Button>
         {readMore && (
-          <Typography sx={{ fontFamily: "Lato" }}>
+          <Typography sx={{ fontFamily: "Lato", marginBottom: '10px' }}>
             It was immediately clear that Nikki and Kai were made for one
             another, and after a few months they planned a trip to South Africa
             for Kai to visit home with the added benefit of Nikki meeting Kai's
@@ -43,6 +43,7 @@ const OurStory = () => {
             <img
               style={{
                 maxWidth: "100%",
+                width: '100%',
                 height: "100%",
                 padding: 0,
                 margin: 0,
@@ -57,6 +58,7 @@ const OurStory = () => {
             <img
               style={{
                 maxWidth: "100%",
+                width: '100%',
                 height: "100%",
                 padding: 0,
                 margin: 0,
@@ -70,6 +72,8 @@ const OurStory = () => {
             <img
               style={{
                 maxWidth: "100%",
+                width: '100%',
+
                 height: "100%",
                 padding: 0,
                 margin: 0,
@@ -82,6 +86,8 @@ const OurStory = () => {
             <img
               style={{
                 maxWidth: "100%",
+                width: '100%',
+
                 height: "100%",
                 padding: 0,
                 margin: 0,
@@ -95,6 +101,8 @@ const OurStory = () => {
             <img
               style={{
                 maxWidth: "100%",
+                width: '100%',
+
                 height: "100%",
                 padding: 0,
                 margin: 0,

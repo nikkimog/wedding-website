@@ -13,11 +13,15 @@ const FAQPage = () => {
 
         <SectionBox title="FAQ" id="faq" >
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize }}>Q: What should I wear? </Typography>
-        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Cocktail.  </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Cocktail attire.  </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize, paddingTop: '18px' }}>Q: How far is Stellenbosch from Cape Town? </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: 60km or ~ 40 miles.  </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize, paddingTop: '18px'}}>Q: What will the weather be?</Typography>
-        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: February is the end of summer in South Africa. The weather will range from 60 degrees F to 80 degrees F with a light breeze. Hopefully it will be absolutely beautiful! </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: February is the end of summer in South Africa. The weather will range from 60 degrees F to 80 degrees F with a light breeze.</Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize,  paddingTop: '18px'}}>Q: Will the ceremony be indoors or outdoors? </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Our ceremony and cocktail hour will be hosted outdoors followed by a reception indoors. </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize, paddingTop: '18px'}}>Q: When should we arrive?</Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Of course this depends on your plans once you're in South Africa, but we suggest getting there at least a few days early to recover from jetlag. We'll be there starting Februrary 15th and will look forward to seeing anyone that plans on arriving early. </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize,  paddingTop: '18px'}}>Q: What should we do in South Africa while we're there? </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: We have a list of recommended activities and restaurants under the Lodging section in our website. 
         If you're staying in South Africa longer, we recommend checking out the bush and going on safari! Feel free to reach out to us directly 

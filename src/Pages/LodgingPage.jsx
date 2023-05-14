@@ -29,13 +29,13 @@ const LodgingPage = (theme) => {
               The Week Before
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
-              We will be staying at <Link href="https://dorp.co.za/">Dorp</Link> in the Gardens neighborhood the week
+              We will be staying at <Link href="https://dorp.co.za/" target="blank">Dorp</Link> in the Gardens neighborhood the week
               before the wedding and will be booking a room block for anyone
-              interested. The neighborhodis walkable to lots of shops and
+              interested. The neighborhood is walkable to lots of shops and
               restaurants.{" "}
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
-              Feel free to book anywhere during this week and reach out to me
+              Feel free to book anywhere during this week and reach out to us
               with any questions about lodging.
             </Typography>
           </Box>
@@ -229,7 +229,7 @@ const LodgingPage = (theme) => {
               to and from our venue to any accomodations in Stellenbosch proper.
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
-              We've listed some hotels and guesthouses below but feel free to
+              We've listed some hotels and guesthouses but feel free to
               peruse the area on Google Maps and book a place that suits your
               needs.
             </Typography>

@@ -27,6 +27,7 @@ const RSVPPage = () => {
   const mobile = useMediaQuery("(max-width:600px)");
 
   const formSubmitted = () => {
+
     setSubmitted(true)
   };
 
@@ -114,10 +115,9 @@ const RSVPPage = () => {
           <>
 
             <>
-            <Typography>hi{submitted}{attemptMade}</Typography>
-            <Typography sx={{display: 'flex', fontFamily: 'Manrope', fontSize: '20px', padding: '50px'}}>
+            <Typography sx={{display: 'flex', fontFamily: 'Manrope', fontSize: '20px', padding: '50px 50px 20px 50px'}}>
             {" "}
-            Gee willikers - I cant find your name! Would you mind searching again (and make sure
+            Whoops - I cant find your name! Would you mind searching again (and make sure
             you use your first and last name)? If it still is not working, email
               nicolerosemogensen at gmail dot com and I (Nikki) will sort it
               out!
@@ -184,7 +184,7 @@ const RSVPPage = () => {
             <RSVPForm guests={guests} formSubmitted={formSubmitted} />
 
             <Typography
-              sx={{ fontSize: "20px", display: "flex", padding: "0 50px 30px 50px" }}
+              sx={{ fontSize: "20px", display: "flex", padding: "0 50px 30px 50px", alignItems: 'center' }}
             >
               Not you?
               <Button
@@ -193,6 +193,8 @@ const RSVPPage = () => {
                   setGuests([]);
                   setAttemptMade(false);
                 }}
+                sx={{ padding: '0 10px'}}
+
               >
                 Search Again
               </Button>
