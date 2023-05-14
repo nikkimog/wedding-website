@@ -10,7 +10,8 @@ import {
   FormLabel,
   FormControlLabel,
   Snackbar,
-  Alert
+  Alert,
+  useMediaQuery
 } from "@mui/material";
 import { supabase } from "../App";
 import emailjs from 'emailjs-com'
@@ -39,6 +40,9 @@ const RSVPForm = ({ guests, formSubmitted }) => {
   const [open, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+
+  const mobileView = useMediaQuery("(max-width:680px)");
+
 
   emailjs.init("XJfBga4GxpPOnGycs");
 
@@ -136,11 +140,11 @@ const RSVPForm = ({ guests, formSubmitted }) => {
 
     if (!submissionError){
       const message = `
-        guestOne: ${guestOne.name} said ${guestOneRSVP},
-        guestTwo: ${guestTwo.name} said ${guestTwoRSVP},
-        guestThree: ${guestThree.name} said ${guestThreeRSVP},
-        guestFour:  ${guestFour.name} said ${guestFourRSVP},
-        guestFive: ${guestFive.name} said ${guestFiveRSVP},
+        guestOne: ${guestOne?.name} said ${guestOneRSVP},
+        guestTwo: ${guestTwo?.name} said ${guestTwoRSVP},
+        guestThree: ${guestThree?.name} said ${guestThreeRSVP},
+        guestFour:  ${guestFour?.name} said ${guestFourRSVP},
+        guestFive: ${guestFive?.name} said ${guestFiveRSVP},
         message: ${RSVPMessage}
       `
       const templateParams= {  message: message}
@@ -451,7 +455,7 @@ const RSVPForm = ({ guests, formSubmitted }) => {
         <TextField
           multiline
           minRows={2}
-          sx={{ width: "350px" }}
+          sx={{ width: mobileView ? "200px" : "350px" }}
           value={RSVPMessage}
           onChange={(e) => setRSVPMessage(e.target.value)}
         ></TextField>
