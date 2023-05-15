@@ -257,33 +257,34 @@ const LodgingPage = (theme) => {
             </Typography>
             <Stack>
               <Link
-                href="http://www.google.com"
+                href="https://babylonstoren.com/"
                 target="_blank"
                 sx={{ fontFamily: "Manrope", fontSize: "16px", marginY: "12px" }}
               >
-                Loading Bay
+                Babylonstoren
               </Link>
               <Link
-                href="http://www.google.com"
+                href="https://cavalliestate.com/"
                 target="_blank"
                 sx={{ fontFamily: "Manrope", fontSize: "16px", marginY: "12px" }}
               >
-                Art Museum
+                Cavalli Estate
               </Link>
               <Link
-                href="http://www.google.com"
+                href="https://boschendal.com/"
                 target="_blank"
                 sx={{ fontFamily: "Manrope", fontSize: "16px", marginY: "12px" }}
               >
-                Robben Island
+                Boschendal
               </Link>
               <Link
-                href="http://www.google.com"
+                href="http://www.bartinney.co.za/"
                 target="_blank"
                 sx={{ fontFamily: "Manrope", fontSize: "16px", marginY: "12px" }}
               >
-                Fourth place
+                Bartinney
               </Link>
+            
               <Link
                 href="http://www.google.com"
                 target="_blank"
