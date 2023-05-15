@@ -10,8 +10,8 @@ const RegistryPage = () => {
         presence our wedding present.
       </Typography>
       <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
-        If you are not able to attend and would like to give a gift, please
-        follow this link to our <Link to="/"> external registry.</Link>
+        If you are not able to attend and would like to give, please
+        follow this link to our <Link target="blank" to="/"> external registry.</Link>
       </Typography>
     </SectionBox>
   );
