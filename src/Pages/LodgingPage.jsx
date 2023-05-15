@@ -286,11 +286,11 @@ const LodgingPage = (theme) => {
               </Link>
             
               <Link
-                href="http://www.google.com"
+                href="https://goo.gl/maps/c2mzfJ2bmqTcTseL8"
                 target="_blank"
                 sx={{ fontFamily: "Manrope", fontSize: "16px", marginY: "12px" }}
               >
-                Fifth place
+                Our Cafe, Restaurant, and Bar Recommendations
               </Link>
             </Stack>
           </Box>
