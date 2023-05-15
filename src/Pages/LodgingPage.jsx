@@ -194,7 +194,7 @@ const LodgingPage = (theme) => {
       </Box>
       <Box>
         <Typography
-          sx={{ fontFamily: "Cardo", fontSize: mobile? '50px':  "64px", textAlign: "left" }}
+          sx={{ fontFamily: "Cardo", fontSize: mobile? '40px':  "64px", textAlign: "left" }}
         >
           Stellenbosch
         </Typography>
