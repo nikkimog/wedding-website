@@ -55,7 +55,7 @@ const CeremonyPage = (theme) => {
             <Typography
               sx={{
                 fontFamily: "Manrope",
-                fontSize: "24px",
+                fontSize: mobile ? '18px' : "24px",
                 marginLeft: "5px",
               }}
             >
@@ -94,7 +94,7 @@ const CeremonyPage = (theme) => {
             <Typography
               sx={{
                 fontFamily: "Manrope",
-                fontSize: "24px",
+                fontSize: mobile ? '18px' : "24px",
                 marginLeft: "5px",
               }}
             >
@@ -105,7 +105,7 @@ const CeremonyPage = (theme) => {
             <Typography
               sx={{
                 fontFamily: "Manrope",
-                fontSize: "24px",
+                fontSize: mobile ? '18px' : "24px",
 
                 marginLeft: "5px",
               }}
@@ -135,13 +135,13 @@ const CeremonyPage = (theme) => {
             >
               Weather
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px" }}>
               60-80° F with a slight breeze.
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px" }}>
               It’s the end of summer in South Africa.
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px" }}>
               We're expecting beautiful weather!
             </Typography>
           </Box>
@@ -157,7 +157,7 @@ const CeremonyPage = (theme) => {
             >
               Dress Code
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px" }}>
               Cocktail
             </Typography>
           </Box>

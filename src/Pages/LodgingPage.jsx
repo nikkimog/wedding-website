@@ -28,13 +28,13 @@ const LodgingPage = (theme) => {
             >
               The Week Before
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px"}}>
               We will be staying at <Link href="https://dorp.co.za/" target="blank">Dorp</Link> in the Gardens neighborhood the week
               before the wedding and will be booking a room block for anyone
               interested. The neighborhood is walkable to lots of shops and
               restaurants.{" "}
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px"}}>
               Feel free to book anywhere during this week and reach out to us
               with any questions about lodging.
             </Typography>
@@ -219,16 +219,16 @@ const LodgingPage = (theme) => {
             >
               Feb 23 - 25
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px" }}>
               We recommend staying in Stellenbosch for the weekend of the
               wedding. It is beautiful wine country where our ceremony will be
               held.{" "}
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px"}}>
               For ease and safety of our guests, we will have a shuttle running
               to and from our venue to any accomodations in Stellenbosch proper.
             </Typography>
-            <Typography sx={{ fontFamily: "Manrope", fontSize: "24px" }}>
+            <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px"}}>
               We've listed some hotels and guesthouses but feel free to
               peruse the area on Google Maps and book a place that suits your
               needs.
