@@ -9,12 +9,12 @@ const mobile = useMediaQuery("(max-width:600px)");
   return (
     <SectionBox id="registry" title="Registry">
       <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px" }}>
-        If you are coming to our ceremony in South Africa, please consider your
+        If you are able to come to our ceremony in South Africa, please consider your
         presence our wedding present.
       </Typography>
       <Typography sx={{ fontFamily: "Manrope", fontSize: mobile? '18px':  "24px" }}>
-        If you are not able to attend and would like to give, please
-        follow this link to our <Link target="_blank" to="/"> external registry.</Link>
+        If you do wish to celebrate with a gift, please
+        follow this link to our <Link target="_blank" href="https://www.hitchd.com/nikkiandkai"> external registry.</Link>
       </Typography>
     </SectionBox>
   );
