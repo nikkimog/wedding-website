@@ -27,7 +27,7 @@ const FAQPage = () => {
         If you're staying in South Africa longer, we recommend checking out the bush and going on safari! Feel free to reach out to us directly 
         if you have any questions about planning your trip. We're so excited you're coming! </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize,  paddingTop: '18px'}}>Q: I've never been to South Africa - what do I need to know? </Typography>
-        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: We recommend reading about travel in South Africa before you plan your trip. Here are a few good blogs about <Link href="https://www.LinkfricLinkendeavours.com/destinations/south-africa/getting-there-getting-around" target="_blank" sx={{marginLeft: '5px'}}>how to get to South Africa</Link>, <Link href="https://www.kiwi.com/stories/a-travel-guide-to-south-africa/" target="_blank" sx={{marginLeft: '5px'}}>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: We recommend reading about travel in South Africa before you plan your trip. Here are a few good blogs about <Link href="https://www.africaendeavours.com/destinations/south-africa/getting-there-getting-around" target="_blank" sx={{marginLeft: '5px'}}>how to get to South Africa</Link>, <Link href="https://www.kiwi.com/stories/a-travel-guide-to-south-africa/" target="_blank" sx={{marginLeft: '5px'}}>
           what to do when you’re in South Africa</Link>, and 
           <Link href="https://www.nomadicmatt.com/travel-blogs/how-to-stay-safe-in-south-africa/" target="_blank" sx={{marginLeft: '5px'}}>
             tips to stay safe</Link> while visiting. For getting around, we recommend renting a car or utilizing uber. </Typography>
