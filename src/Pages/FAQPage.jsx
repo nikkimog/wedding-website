@@ -23,7 +23,8 @@ const FAQPage = () => {
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize, paddingTop: '18px'}}>Q: When should we arrive?</Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Of course this depends on your plans once you're in South Africa, but we suggest getting there at least a few days early to recover from jetlag. We'll be there starting Februrary 17th and will look forward to seeing anyone that plans on arriving early. </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize,  paddingTop: '18px'}}>Q: What should we do in South Africa while we're there? </Typography>
-        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: We have a list of recommended activities and restaurants under the <Link href="#lodging">Lodging</Link> section in our website. For the week before, we'll have a few scheduled group activities for those who are in town. More details will come closer to the wedding.
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: We have a list of recommended activities and restaurants under the <Link href="#lodging">Lodging</Link> section in our website. For the week before, we'll have a few scheduled group activities for those who are in town. We'll send an email out to those who are attending about a month before the wedding with details.
+        If you'd like to get this information before then, just reach out to Nikki or Kai.
         If you're staying in South Africa longer, we recommend checking out the bush and going on safari! Feel free to reach out to us directly 
         if you have any questions about planning your trip. We're so excited you're coming! </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize,  paddingTop: '18px'}}>Q: I've never been to South Africa - what do I need to know? </Typography>
@@ -31,6 +32,8 @@ const FAQPage = () => {
           what to do when you’re in South Africa</Link>, and 
           <Link href="https://www.nomadicmatt.com/travel-blogs/how-to-stay-safe-in-south-africa/" target="_blank" sx={{marginLeft: '5px'}}>
             tips to stay safe</Link> while visiting. For getting around, we recommend renting a car or utilizing uber. </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize,  paddingTop: '18px'}}>Q: Do I need to tip in South Africa? </Typography>
+        <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Payments and tips are taken at your table, prior to handing your card over or inserting it in the card machine. It is customary to tip 10-15% in South Africa and cash tips are always preferred. We encourage you to tip 20%+ where possible - the exchange rate is in your favor.</Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: questionFontSize,  paddingTop: '18px'}}>Q: What is load shedding? </Typography>
         <Typography  sx={{fontFamily: 'Manrope', fontSize: answerFontSize}}>A: Due to infrastructure challenges in South Africa, there are periods where the power will be turned off for a few hours at a time. Many tourist areas are exempt and many others have generators. 
         If you have a need for constant power, please ensure the place you're staying will be equipped during load shedding. </Typography>

@@ -30,8 +30,8 @@ const LodgingPage = (theme) => {
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px"}}>
               We will be staying at <Link href="https://dorp.co.za/" target="blank">Dorp</Link> in the Gardens neighborhood the week
-              before the wedding and will be booking a room block for anyone
-              interested. The neighborhood is walkable to lots of shops and
+              before the wedding and have booked a room block for anyone
+              interested. Please reach out to Nikki or Kai for details. The neighborhood is walkable to lots of shops and
               restaurants.{" "}
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px"}}>
