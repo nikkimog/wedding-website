@@ -29,9 +29,9 @@ const LodgingPage = (theme) => {
               The Week Before
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px"}}>
-              We will be staying at <Link href="https://dorp.co.za/" target="blank">Dorp</Link> in the Gardens neighborhood the week
+              We will be staying at <Link href="https://dorp.co.za/" target="blank">Dorp</Link> in the Bo-Kaap neighborhood the week
               before the wedding and have booked a room block for anyone
-              interested. Please reach out to Nikki or Kai for details. The neighborhood is walkable to lots of shops and
+              interested. Please reach out to Nikki or Kai for details. Bo-Kaap and the Gardens neighborhoods are walkable to lots of shops and
               restaurants.{" "}
             </Typography>
             <Typography sx={{ fontFamily: "Manrope", fontSize: mobile ? '18px' : "24px"}}>
