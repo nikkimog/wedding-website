@@ -23,16 +23,12 @@ const RSVPPage = () => {
   const [open, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
-  const [submitted, setSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(false);
   const mobile = useMediaQuery("(max-width:600px)");
 
   const formSubmitted = () => {
-
-    setSubmitted(true)
+    setSubmitted(true);
   };
-
-
-
 
   const handleClose = () => {
     setOpenSnackbar(false);
@@ -46,47 +42,47 @@ const RSVPPage = () => {
       .ilike("name", guestName)
       .order("id", { ascending: false });
 
-
-    if (error){
-      setOpenSnackbar(true)
-      setSnackbarMessage('Server error! Please try again or contact Nikki or Kai.')
-      setSnackbarSeverity('error')
-    } 
-    if (!initialGuest.length){
-      setAttemptMade(true)
-    } else { 
-      getAllGuests(initialGuest)
+    if (error) {
+      setOpenSnackbar(true);
+      setSnackbarMessage(
+        "Server error! Please try again or contact Nikki or Kai."
+      );
+      setSnackbarSeverity("error");
     }
-
+    if (!initialGuest.length) {
+      setAttemptMade(true);
+    } else {
+      getAllGuests(initialGuest);
+    }
   };
 
-    const getAllGuests = async (initialGuest) => {
-      if (initialGuest[0]?.coupleId) {
-        let { data: allGuests, error } = await supabase
-          .from("guests")
-          .select()
-          .select("*")
-          .eq("coupleId", initialGuest[0].coupleId)
-          .order("id", { ascending: true });
+  const getAllGuests = async (initialGuest) => {
+    if (initialGuest[0]?.coupleId) {
+      let { data: allGuests, error } = await supabase
+        .from("guests")
+        .select()
+        .select("*")
+        .eq("coupleId", initialGuest[0].coupleId)
+        .order("id", { ascending: true });
 
-     
-        if (error) {
-          setOpenSnackbar(true)
-          setSnackbarMessage('Server error! Please try again or contact Nikki or Kai.')
-          setSnackbarSeverity('error')
-        } else setGuests(allGuests);
-      } else { 
-        setGuests(initialGuest)
-      }
+      if (error) {
+        setOpenSnackbar(true);
+        setSnackbarMessage(
+          "Server error! Please try again or contact Nikki or Kai."
+        );
+        setSnackbarSeverity("error");
+      } else setGuests(allGuests);
+    } else {
+      setGuests(initialGuest);
+    }
 
-      if (initialGuest[0]?.name) {
-        setFoundGuest(true);
-        setAttemptMade(true)
-      } else if (initialGuest[0]){ 
-        setAttemptMade(true)
-      }
-    
-    };
+    if (initialGuest[0]?.name) {
+      setFoundGuest(true);
+      setAttemptMade(true);
+    } else if (initialGuest[0]) {
+      setAttemptMade(true);
+    }
+  };
 
   return (
     <Box
@@ -98,6 +94,8 @@ const RSVPPage = () => {
         margin: "auto",
       }}
     >
+      <Box sx={{ display: "none" }}>Nikki Mogensen and Kai Bastos</Box>
+
       <Box sx={{ flex: 1.5, paddingLeft: "5%" }}>
         <Snackbar
           open={open}
@@ -111,32 +109,36 @@ const RSVPPage = () => {
             {snackbarMessage}
           </Alert>
         </Snackbar>
-        {attemptMade && !foundGuest && !submitted && 
+        {attemptMade && !foundGuest && !submitted && (
           <>
-
             <>
-            <Typography sx={{display: 'flex', fontFamily: 'Manrope', fontSize: '20px', padding: '50px 50px 20px 50px'}}>
-            {" "}
-            Whoops - I cant find your name! Would you mind searching again (and make sure
-            you use your first and last name)? If it still is not working, email
-              nicolerosemogensen at gmail dot com and I (Nikki) will sort it
-              out!
-   
-          </Typography>
-              
+              <Typography
+                sx={{
+                  display: "flex",
+                  fontFamily: "Manrope",
+                  fontSize: "20px",
+                  padding: "50px 50px 20px 50px",
+                }}
+              >
+                {" "}
+                Whoops - I cant find your name! Would you mind searching again
+                (and make sure you use your first and last name)? If it still is
+                not working, email nicolerosemogensen at gmail dot com and I
+                (Nikki) will sort it out!
+              </Typography>
             </>
             <Button
-                onClick={() => {
-                  setFoundGuest(false);
-                  setGuests([]);
-                  setAttemptMade(false);
-                }}
-                variant="contained"
-              >
-                Search Again
-              </Button>
+              onClick={() => {
+                setFoundGuest(false);
+                setGuests([]);
+                setAttemptMade(false);
+              }}
+              variant="contained"
+            >
+              Search Again
+            </Button>
           </>
-        }
+        )}
         {!foundGuest && !attemptMade && (
           <Box>
             <Box>
@@ -184,7 +186,12 @@ const RSVPPage = () => {
             <RSVPForm guests={guests} formSubmitted={formSubmitted} />
 
             <Typography
-              sx={{ fontSize: "20px", display: "flex", padding: "0 50px 30px 50px", alignItems: 'center' }}
+              sx={{
+                fontSize: "20px",
+                display: "flex",
+                padding: "0 50px 30px 50px",
+                alignItems: "center",
+              }}
             >
               Not you?
               <Button
@@ -193,19 +200,23 @@ const RSVPPage = () => {
                   setGuests([]);
                   setAttemptMade(false);
                 }}
-                sx={{ padding: '0 10px'}}
-
+                sx={{ padding: "0 10px" }}
               >
                 Search Again
               </Button>
             </Typography>
           </>
         )}
-              {submitted &&
-      <Box display="flex" sx={{justifyContent: 'center', marginTop: '50px'}}>
-        <Typography sx={{fontFamily: 'Manrope', fontSize: '20px'}}>Thank you for RSVPing!</Typography>
-         </Box>
-        }
+        {submitted && (
+          <Box
+            display="flex"
+            sx={{ justifyContent: "center", marginTop: "50px" }}
+          >
+            <Typography sx={{ fontFamily: "Manrope", fontSize: "20px" }}>
+              Thank you for RSVPing!
+            </Typography>
+          </Box>
+        )}
       </Box>
 
       <Box className="rsvpPhoto" sx={{ flex: 1 }} />
