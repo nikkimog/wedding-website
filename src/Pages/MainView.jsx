@@ -6,6 +6,7 @@ import CeremonyPage from "./CeremonyPage";
 import FAQPage from "./FAQPage";
 import { Box } from "@mui/material";
 import OurStory from "./OurStory";
+import Footer from "./Footer";
 
 const MainView = () => {
   return (
@@ -16,6 +17,7 @@ const MainView = () => {
       <OurStory />
       <RegistryPage />
       <FAQPage />
+      <Footer />
     </Box>
   );
 };
