@@ -467,6 +467,26 @@ const LodgingPage = (theme) => {
               >
                 Bonne Esperance
               </Link>
+              <Link
+                href="https://campcanoe.co.za/"
+                sx={{
+                  fontFamily: "Manrope",
+                  fontSize: "16px",
+                  marginY: "12px",
+                }}
+              >
+                Camp Canoe
+              </Link>
+              <Link
+                href="https://www.camissafarm.com/"
+                sx={{
+                  fontFamily: "Manrope",
+                  fontSize: "16px",
+                  marginY: "12px",
+                }}
+              >
+                Camissa Farms
+              </Link>
             </Stack>
           </Box>
         </Box>
