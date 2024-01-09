@@ -127,7 +127,7 @@ const FAQPage = () => {
           tips to stay safe
         </Link>{" "}
         while visiting. For getting around, we recommend renting a car or
-        utilizing uber.{" "}
+        utilizing uber.{" "} Check out local travel recommendations for vaccines and other medications if needed.
       </Typography>
       <Typography
         sx={{
